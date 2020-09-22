@@ -2,8 +2,8 @@
 /* Client Example */
 include __DIR__ . "/../vendor/autoload.php";
 
-$Key = 'TestKey_Develop2020';
-$Callback = 'http://host-sn-53.galgo.io';
+$Key = 'A Test Key';
+$Callback = 'http://test-host.com';
 
 $Client = new \galgo\api\Client($Key, $Callback);
 
