@@ -1,0 +1,19 @@
+{
+    "name": "galgo/api",
+    "description": "A simple Api Server/Client for your project.",
+    "authors": [
+        {
+            "name": "Ramiro Ricoy",
+            "email": "dragnu@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "galgo\\api\\":"src/"
+        }
+    },
+    "version": "0.2.0"
+
+}
