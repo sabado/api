@@ -7,7 +7,7 @@ $Callback = 'http://test-host.com';
 
 $Client = new \galgo\api\Client($Key, $Callback);
 
-$Route = 'cas/providers/list';
+$Route = 'some/route';
 $Args = [];
 $Results = $Client->Get(  $Route, $Args );
 
