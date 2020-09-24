@@ -63,7 +63,7 @@ class Client {
 
     Private Function _Send( $Endpoint, $Options ): array { 
         $Context  = stream_context_create( $Options );
-        $Response = file_get_contents( $Endpoint, false, $Context );
+        $Response = @file_get_contents( $Endpoint, false, $Context );
 
         /** Error de host */
         if( $Response === false ) 
