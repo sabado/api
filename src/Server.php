@@ -2,21 +2,27 @@
 
 Class Server {
 
-    Public Static Function Headers(){
-        header('Server: Galgo.io Galgo/Api v0.1.7');
+    Public Static Function Headers( ){
+        header( 'Server: Galgo.io Galgo/Api v0.1.7' );
 	header( 'Server-UUID: '  . ( ( defined( '_SERVER_UUID_' ) ) ?  _SERVER_UUID_ 	 : 'NOT_CONFIGURED' ) );
         header( 'Server-Fancy: ' . ( ( defined( '_SERVER_FANCY_NAME_' ) ) ?  _SERVER_FANCY_NAME_ : 'NOT_CONFIGURED' ) );
+	$Headers = getallheaders( );
+	$Request = [ ];
+        foreach($Headers as $Header => $Value){
+		if( $Header == 'X-Auth' ) continue;
+		$Request[ 'Headers' ] = [ $Header = > $Value ];
+        }
+	return $Request;
 
     }
 
-    Public Static Function Route($Route,$Functionality){
+    Public Static Function Route( $Route, $Functionality ){
 
-	$Request = 
-	[
+	$Request = [
 		'Route' => $Route,
 		'Accepted'  =>  null,
 		'Type'  =>  null,
-		'Content-Type'=> null,
+		'Content-Type' => null,
 		'Body'  =>  file_get_contents( 'php://input' ),
 		'Post'  =>  $_POST,
         	'Get'   =>  $_GET,
