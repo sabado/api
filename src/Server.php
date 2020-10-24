@@ -62,6 +62,7 @@ Class Server {
 	$Request[ 'Get'  ]  = $_GET;
 	$Request[ 'Body' ]  = file_get_contents( 'php://input' );
 	$Request[ 'Content-Type' ] = @getallheaders()['Content-Type'];
+	$Request[ 'Token' ] =  @getallheaders()['Token'] ?? False;
         $Request[ 'Args'  ]  = $Var;
 	array_unshift($Var,$Request);
 	call_user_func_array($Functionality,$Var);
