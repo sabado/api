@@ -10,7 +10,7 @@ Class Server {
 	$Request = [ ];
         foreach($Headers as $Header => $Value){
 		if( $Header == 'X-Auth' ) continue;
-		$Request[ 'Headers' ] = [ $Header = > $Value ];
+		$Request[ 'Headers' ] = [ $Header => $Value ];
         }
 	return $Request;
 
