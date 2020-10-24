@@ -24,6 +24,7 @@ Class Server {
 		'Type'  =>  null,
 		'Content-Type' => null,
 		'Body'  =>  file_get_contents( 'php://input' ),
+		'Token' =>  ( @getallheaders( ) [ 'Token' ] ?? False ),
 		'Post'  =>  $_POST,
         	'Get'   =>  $_GET,
         	'Var'   =>  null
@@ -62,7 +63,6 @@ Class Server {
 	$Request[ 'Get'  ]  = $_GET;
 	$Request[ 'Body' ]  = file_get_contents( 'php://input' );
 	$Request[ 'Content-Type' ] = @getallheaders()['Content-Type'];
-	$Request[ 'Token' ] =  @getallheaders()['Token'] ?? False;
         $Request[ 'Args'  ]  = $Var;
 	array_unshift($Var,$Request);
 	call_user_func_array($Functionality,$Var);
